@@ -1,0 +1,46 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/postgres
+{
+	"name": "Mastering Bitcoin Python 3",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"containerEnv": {
+		"PYTHONPATH": "/workspaces/${localWorkspaceFolderBasename}/mastering_bitcon"
+	},
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "remoteEnv": {
+	// 	"GITLAB_AUTH_TOKEN": "${localEnv:GITLAB_AUTH_TOKEN}"
+	//   },
+	// "features": {
+	// 	"ghcr.io/customink/codespaces-features/sam-cli": {}
+	// 	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+			// "amazonwebservices.aws-toolkit",
+			"ms-python.python",
+			"eamodio.gitlens",
+			// "amazonwebservices.aws-toolkit-vscode",
+			"ms-azuretools.vscode-docker",
+			"tamasfe.even-better-toml",
+			// "DanielThielking.aws-cloudformation-yaml",
+			"ms-python.flake8"
+			],
+			"settings": {
+				"editor.formatOnSave": false,
+				"python.testing.pytestEnabled": true,
+				"python.testing.pytestArgs": [
+					"tests/unit",
+					"tests/integration"
+				],
+				"search.exclude": {
+                    "**/.aws-sam": true
+                }
+			}
+		}
+	}
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// This can be used to network with other containers or the host.
+	// "forwardPorts": [5432]
+}
