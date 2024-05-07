@@ -1,2 +1,3 @@
 python-bitcoinrpc
 python-bitcoinlib
+python-dotenv

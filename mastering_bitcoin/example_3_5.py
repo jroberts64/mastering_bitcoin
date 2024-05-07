@@ -1,6 +1,9 @@
 from bitcoin.rpc import RawProxy, Proxy
+from env import ENV
 
-p: Proxy = RawProxy(service_url='http://umbrel:cehXos-viphyk-5tohdo@umbrel.local:8332')
+env = ENV()
+
+p: Proxy = RawProxy(service_url=env.service_url)
 
 info = p.getblockchaininfo()
 
